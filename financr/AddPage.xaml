@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="financr.AddPage"
+             x:Name="PageForAdd">
+    <StackLayout>
+        <StackLayout>
+            <Label Text = "Add Expense"/>
+            <StackLayout Orientation="Horizontal">
+                <DatePicker x:Name="dateExpense" Format="dd/MM/yyyy" Date="{Binding DateExpense}"/>
+                <Entry x:Name="priceExpense" Placeholder="Price" Keyboard="Numeric" Text="{Binding PriceExpense}"/>
+                <Entry x:Name="notesExpense" Placeholder="Notes" Text="{Binding NotesExpense}"/>
+                <Button x:Name="addExpense" Text="add" Command="{Binding OnAddExpenseCommand}"/>
+            </StackLayout>
+        </StackLayout>
+        <StackLayout>
+            <Label Text = "Categories" />
+            <StackLayout Orientation="Horizontal">
+                <Entry x:Name="categoryEntry" Placeholder="Enter Category" Text="{Binding AddCategoryString}"/>
+                <Button x:Name="addCategory" Text="add category" Command="{Binding OnAddCategoryCommand}"/>
+            </StackLayout>
+            <ListView x:Name="categoryExpense" ItemsSource="{Binding CategoryList}" SelectedItem="{Binding CategoryExpense}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.ContextActions>
+                                <MenuItem x:Name="deleteCategory" Command="{Binding Path=BindingContext.OnDeleteCategoryCommand, Source={x:Reference Name=PageForAdd}}"
+                                          CommandParameter="{Binding .}" Text="Delete" IsDestructive="True"/>
+                            </ViewCell.ContextActions>
+                            <Label Text="{Binding Category}"/>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+        <StackLayout>
+            <Label Text = "Add Monthly Limit"/>
+            <StackLayout Orientation="Horizontal">
+                <Entry x:Name="monthlyLimitEntry" Placeholder = "Monthly Limit" Keyboard="Numeric" Text="{Binding AddMonthlyLimitString}"/>
+                <Button x:Name="monthlyLimitButton" Text = "add" Command="{Binding OnAddMonthlyCommand}"/>
+                <Label Text="Current Limit: "/>
+                <Label Text="{Binding MonthlyLimit.MonthlyLimit, StringFormat='{0:C2}'}"/>
+            </StackLayout>
+        </StackLayout>
+        <StackLayout Padding="20">
+            <Label Text="Last added entries"/>
+            <ListView ItemsSource="{Binding ExpenseList}" SelectionMode="None">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.ContextActions>
+                                <MenuItem x:Name="editExpense" Clicked="editExpense_Clicked"
+                                          CommandParameter="{Binding .}"
+                                          Text="Edit"/>
+                                <MenuItem x:Name="deleteExpense" Command="{Binding Path=BindingContext.OnDeleteExpenseCommand, Source={x:Reference Name=PageForAdd}}"
+                                          CommandParameter="{Binding .}"
+                                          Text="Delete" IsDestructive="True"/>
+                            </ViewCell.ContextActions>
+                            <StackLayout Orientation="Horizontal" VerticalOptions="Center">
+                                <Label Text="{Binding Date, StringFormat='{0:dd/MM/yyyy}'}"/>
+                                <Label Text="{Binding Category}"/>
+                                <Label Text="{Binding Price, StringFormat='{0:C2}'}"/>
+                                <Label Text="{Binding Notes}"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </StackLayout>
+</ContentPage>

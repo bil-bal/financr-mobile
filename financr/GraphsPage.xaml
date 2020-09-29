@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="financr.GraphsPage"
+             xmlns:chart="clr-namespace:Syncfusion.SfChart.XForms;assembly=Syncfusion.SfChart.XForms">
+
+    <ScrollView>
+        <StackLayout>
+            <chart:SfChart BackgroundColor="Transparent" 
+                           HorizontalOptions="FillAndExpand" 
+                           VerticalOptions="FillAndExpand" 
+                           x:Name="PieChart"
+                           IsVisible="{Binding PieChartVisible}">
+                <chart:SfChart.ChartBehaviors>
+                    <chart:ChartZoomPanBehavior/>
+                </chart:SfChart.ChartBehaviors>
+                <chart:SfChart.Series>
+                    <chart:PieSeries ItemsSource="{Binding PieList}" XBindingPath="Category" YBindingPath="Value" Label="Category" EnableTooltip="True" ListenPropertyChange="True">
+                        <chart:PieSeries.ColorModel>
+                            <chart:ChartColorModel Palette="Natural"/>
+                        </chart:PieSeries.ColorModel>
+                    </chart:PieSeries>
+                </chart:SfChart.Series>
+            </chart:SfChart>
+            <chart:SfChart BackgroundColor="Transparent" 
+                           HorizontalOptions="FillAndExpand" 
+                           VerticalOptions="FillAndExpand" 
+                           x:Name="LineChart"
+                           Margin="20, 30, 20, 20"
+                           IsVisible="{Binding LinesChartVisible}">
+                <chart:SfChart.ChartBehaviors>
+                    <chart:ChartZoomPanBehavior/>
+                </chart:SfChart.ChartBehaviors>
+                <chart:LineSeries Color="#b0c4de" ItemsSource="{Binding LinesList}" XBindingPath="Date" YBindingPath="Value" EnableTooltip="True" ListenPropertyChange="True">
+                    
+                </chart:LineSeries>
+            </chart:SfChart>
+            <chart:SfChart BackgroundColor="Transparent" 
+                           HorizontalOptions="FillAndExpand" 
+                           VerticalOptions="FillAndExpand" 
+                           x:Name="ColumnChart"
+                           Margin="20, 30, 20, 20"
+                           IsVisible="{Binding BarChartVisible}">
+                <chart:SfChart.ChartBehaviors>
+                    <chart:ChartZoomPanBehavior/>
+                </chart:SfChart.ChartBehaviors>
+                <chart:ColumnSeries EnableAnimation="True" ItemsSource="{Binding ColumnList}" XBindingPath="Date" YBindingPath="Value" Label="Category" EnableTooltip="True" ListenPropertyChange="True">
+                    <chart:ColumnSeries.ColorModel>
+                        <chart:ChartColorModel Palette="Natural"/>
+                    </chart:ColumnSeries.ColorModel>
+                </chart:ColumnSeries>
+                <chart:SfChart.ChartAnnotations>
+                    <chart:HorizontalLineAnnotation Y1="{Binding MonthlyLimit.MonthlyLimit}" StrokeWidth="5" StrokeColor="Red"/>
+                </chart:SfChart.ChartAnnotations>
+            </chart:SfChart>
+            <StackLayout Orientation="Horizontal">
+                <Button x:Name="linesChart" Text="Daily" Command="{Binding OnDailyChartCommand}"/>
+                <Button x:Name="pieChart" Text="Category" Command="{Binding OnCategoryChartCommand}"/>
+                <Button x:Name="barChart" Text="Monthly" Command="{Binding OnMonthlyChartCommand}"/>
+            </StackLayout>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

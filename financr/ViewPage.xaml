@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="financr.ViewPage"
+             x:Name="PageForView">
+    <StackLayout Margin="10, 10, 10, 10">
+        <StackLayout Orientation="Horizontal" VerticalOptions="Center">
+            <Label Text="From" VerticalTextAlignment="Center"/>
+            <DatePicker x:Name="dateStart" Format="dd/MM/yyyy" Date="{Binding DateStartFilter}"/>
+            <Label Text="To" VerticalTextAlignment="Center"/>
+            <DatePicker x:Name="dateEnd" Format="dd/MM/yyyy" Date="{Binding DateEndFilter}"/>
+            <Label Text="Include Date?" VerticalTextAlignment="Center"/>
+            <CheckBox x:Name="checkBoxDate" IsChecked="{Binding CheckBoxFilter, Mode=TwoWay}"/>
+        </StackLayout>
+        <StackLayout Orientation="Horizontal">
+            <Picker x:Name="categoryPicker" ItemsSource="{Binding CategoryList}" ItemDisplayBinding="{Binding Category}" Title="Category" SelectedItem="{Binding CategoryFilter, Mode=TwoWay}"/>
+            <Entry x:Name="notesEntry" Placeholder="Notes" Text="{Binding NotesFilter, Mode=TwoWay}"/>
+            <Button x:Name="filterButton" Text="Filter" Command="{Binding OnFilterCommand}"/>
+            <Button x:Name="resetFilterButton" Text="Reset" Command="{Binding OnFilterResetCommand}"/>
+        </StackLayout>
+        <ListView x:Name="viewListView" ItemsSource="{Binding SortedExpenseList}" SelectionMode="None" IsPullToRefreshEnabled="true" Refreshing="ListView_Refreshing">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <ViewCell.ContextActions>
+                            <MenuItem x:Name="editExpense" Clicked="editExpense_Clicked"
+                                              CommandParameter="{Binding .}"
+                                              Text="Edit"/>
+                            <MenuItem x:Name="deleteExpense" Command="{Binding Path=BindingContext.OnDeleteExpenseCommand, Source={x:Reference Name=PageForView}}"
+                                              CommandParameter="{Binding .}"
+                                              Text="Delete" IsDestructive="True"/>
+                        </ViewCell.ContextActions>
+                        <StackLayout Orientation="Horizontal" VerticalOptions="Center">
+                            <Label Text="{Binding Date, StringFormat='{0:dd/MM/yyyy}'}"/>
+                            <Label Text="{Binding Category}"/>
+                            <Label Text="{Binding Price, StringFormat='{0:C2}'}"/>
+                            <Label Text="{Binding Notes}"/>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+            <Label Text="Total     " VerticalTextAlignment="Center"/>
+            <Label Text="{Binding Total, StringFormat='{0:C2}'}" VerticalTextAlignment="Center"/>
+        </StackLayout>
+    </StackLayout>
+</ContentPage>

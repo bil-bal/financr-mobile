@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+            mc:Ignorable="d"
+            android:TabbedPage.ToolbarPlacement="Bottom"
+            x:Class="financr.MainTabbedPage"
+            xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+            BarBackgroundColor="#434343"
+            NavigationPage.HasNavigationBar="true"
+            SelectedTabColor="#b0c4de"
+            UnselectedTabColor="White">
+    <NavigationPage.TitleView>
+        <Label Text="financr" FontSize="24" TextColor="Black"/>
+    </NavigationPage.TitleView>
+    <TabbedPage.Background>
+        <LinearGradientBrush>
+            <GradientStop Color="#F6F6F6"
+                              Offset="0.1"/>
+                <GradientStop Color="#E8E8E8"
+                              Offset="1.0"/>
+        </LinearGradientBrush>
+    </TabbedPage.Background>
+    <TabbedPage.ToolbarItems>
+        <ToolbarItem Order="Primary" Name="Logout" Text="Logout" Priority="0" Clicked="Logout_Clicked"/>
+    </TabbedPage.ToolbarItems>
+</TabbedPage>

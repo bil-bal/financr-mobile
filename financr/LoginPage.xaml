@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="financr.LoginPage"
+             BackgroundColor="#F6F6F6"
+             NavigationPage.HasNavigationBar="false">
+    <StackLayout VerticalOptions="Center" Padding="20" Spacing="20">
+        <Label x:Name="label" Text="financr" TextColor="Black" FontSize="40" FontAttributes="Bold" Padding="0, 0, 0, 50"/>
+        <Entry x:Name="username" Text="{Binding Username}" TextColor="Black" PlaceholderColor="Black" Placeholder="username" Completed="username_Completed" BackgroundColor="Transparent"/>
+        <Entry x:Name="password" Text="{Binding Password}" TextColor="Black" PlaceholderColor="Black" Placeholder="password" IsPassword="True" Completed="password_Completed"/>
+        <Label x:Name="infoLabel" Text="{Binding InfoLabel}" TextColor="Black" />
+        <Button x:Name="login" Text="login" Clicked="password_Completed" BackgroundColor="Transparent"/>
+        <Button x:Name="register" Text="register" BackgroundColor="Transparent" Command="{Binding OnRegisterClickedCommand}"/>
+    </StackLayout>
+</ContentPage>
