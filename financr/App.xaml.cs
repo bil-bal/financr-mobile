@@ -14,7 +14,7 @@ namespace financr
 
         public App()
         {
-            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("MzE1MzkwQDMxMzgyZTMyMmUzMEdvakNBZ2xtczdObUJtaEpCUEs0b3p1Z1ZWOG54dVhjNnVjeVcrQXhSNWs9");
+            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("");
             
             InitializeComponent();
 
