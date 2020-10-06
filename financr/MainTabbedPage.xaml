@@ -7,10 +7,12 @@
             android:TabbedPage.ToolbarPlacement="Bottom"
             x:Class="financr.MainTabbedPage"
             xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+            xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
             BarBackgroundColor="#434343"
             NavigationPage.HasNavigationBar="true"
             SelectedTabColor="#b0c4de"
-            UnselectedTabColor="White">
+            UnselectedTabColor="White"
+            ios:Page.UseSafeArea="True">
     <NavigationPage.TitleView>
         <Label Text="financr" FontSize="24" TextColor="Black"/>
     </NavigationPage.TitleView>

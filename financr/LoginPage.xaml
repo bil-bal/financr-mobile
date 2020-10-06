@@ -6,11 +6,13 @@
              mc:Ignorable="d"
              x:Class="financr.LoginPage"
              BackgroundColor="#F6F6F6"
-             NavigationPage.HasNavigationBar="false">
+             NavigationPage.HasNavigationBar="false"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             ios:Page.UseSafeArea="True">
     <StackLayout VerticalOptions="Center" Padding="20" Spacing="20">
         <Label x:Name="label" Text="financr" TextColor="Black" FontSize="40" FontAttributes="Bold" Padding="0, 0, 0, 50"/>
-        <Entry x:Name="username" Text="{Binding Username}" TextColor="Black" PlaceholderColor="Black" Placeholder="username" Completed="username_Completed" BackgroundColor="Transparent"/>
-        <Entry x:Name="password" Text="{Binding Password}" TextColor="Black" PlaceholderColor="Black" Placeholder="password" IsPassword="True" Completed="password_Completed"/>
+        <Entry x:Name="username" Text="{Binding Username}" TextColor="Black" PlaceholderColor="Black" Placeholder="username" Completed="username_Completed" BackgroundColor="#b0c4de"/>
+        <Entry x:Name="password" Text="{Binding Password}" TextColor="Black" PlaceholderColor="Black" Placeholder="password" IsPassword="True" Completed="password_Completed" BackgroundColor="#b0c4de"/>
         <Label x:Name="infoLabel" Text="{Binding InfoLabel}" TextColor="Black" />
         <Button x:Name="login" Text="login" Clicked="password_Completed" BackgroundColor="Transparent"/>
         <Button x:Name="register" Text="register" BackgroundColor="Transparent" Command="{Binding OnRegisterClickedCommand}"/>

@@ -6,7 +6,9 @@
              mc:Ignorable="d"
              x:Class="financr.RegisterPage"
              NavigationPage.HasNavigationBar="false"
-             BackgroundColor="#b0c4de">
+             BackgroundColor="#b0c4de"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             ios:Page.UseSafeArea="True">
     <StackLayout VerticalOptions="Center" Padding="20" Spacing="20">
         <Label Text="create an account" TextColor="Black" FontSize="40" Padding="0, 0, 0, 50"/>
         <Entry x:Name="username" Text="{Binding Username}" Placeholder="username" TextColor="Black" PlaceholderColor="Black" Completed="username_Completed"/>

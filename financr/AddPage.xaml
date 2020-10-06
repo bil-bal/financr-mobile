@@ -5,24 +5,26 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="financr.AddPage"
-             x:Name="PageForAdd">
-    <StackLayout>
+             x:Name="PageForAdd"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             ios:Page.UseSafeArea="True">
+    <StackLayout Margin="10, 10, 10, 10">
         <StackLayout>
-            <Label Text = "Add Expense"/>
+            <Label Text = "Add Expense" TextColor="Black"/>
             <StackLayout Orientation="Horizontal">
-                <DatePicker x:Name="dateExpense" Format="dd/MM/yyyy" Date="{Binding DateExpense}"/>
-                <Entry x:Name="priceExpense" Placeholder="Price" Keyboard="Numeric" Text="{Binding PriceExpense}"/>
-                <Entry x:Name="notesExpense" Placeholder="Notes" Text="{Binding NotesExpense}"/>
+                <DatePicker x:Name="dateExpense" Format="dd/MM/yyyy" Date="{Binding DateExpense}" BackgroundColor="#b0c4de" TextColor="Black"/>
+                <Entry x:Name="priceExpense" Placeholder="Price" Keyboard="Numeric" Text="{Binding PriceExpense}" BackgroundColor="#b0c4de" TextColor="Black"/>
+                <Entry x:Name="notesExpense" Placeholder="Notes" Text="{Binding NotesExpense}" BackgroundColor="#b0c4de" TextColor="Black"/>
                 <Button x:Name="addExpense" Text="add" Command="{Binding OnAddExpenseCommand}"/>
             </StackLayout>
         </StackLayout>
         <StackLayout>
-            <Label Text = "Categories" />
+            <Label Text = "Categories" TextColor="Black"/>
             <StackLayout Orientation="Horizontal">
-                <Entry x:Name="categoryEntry" Placeholder="Enter Category" Text="{Binding AddCategoryString}"/>
+                <Entry x:Name="categoryEntry" Placeholder="Enter Category" Text="{Binding AddCategoryString}" BackgroundColor="#b0c4de" TextColor="Black"/>
                 <Button x:Name="addCategory" Text="add category" Command="{Binding OnAddCategoryCommand}"/>
             </StackLayout>
-            <ListView x:Name="categoryExpense" ItemsSource="{Binding CategoryList}" SelectedItem="{Binding CategoryExpense}">
+            <ListView x:Name="categoryExpense" ItemsSource="{Binding CategoryList}" SelectedItem="{Binding CategoryExpense}" BackgroundColor="#b0c4de">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
@@ -30,24 +32,24 @@
                                 <MenuItem x:Name="deleteCategory" Command="{Binding Path=BindingContext.OnDeleteCategoryCommand, Source={x:Reference Name=PageForAdd}}"
                                           CommandParameter="{Binding .}" Text="Delete" IsDestructive="True"/>
                             </ViewCell.ContextActions>
-                            <Label Text="{Binding Category}"/>
+                            <Label Text="{Binding Category}" TextColor="Black"/>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
         </StackLayout>
         <StackLayout>
-            <Label Text = "Add Monthly Limit"/>
+            <Label Text = "Add Monthly Limit" TextColor="Black"/>
             <StackLayout Orientation="Horizontal">
-                <Entry x:Name="monthlyLimitEntry" Placeholder = "Monthly Limit" Keyboard="Numeric" Text="{Binding AddMonthlyLimitString}"/>
+                <Entry x:Name="monthlyLimitEntry" Placeholder = "Monthly Limit" Keyboard="Numeric" Text="{Binding AddMonthlyLimitString}" BackgroundColor="#b0c4de"/>
                 <Button x:Name="monthlyLimitButton" Text = "add" Command="{Binding OnAddMonthlyCommand}"/>
-                <Label Text="Current Limit: "/>
-                <Label Text="{Binding MonthlyLimit.MonthlyLimit, StringFormat='{0:C2}'}"/>
+                <Label Text="Current Limit: " TextColor="Black"/>
+                <Label Text="{Binding MonthlyLimit.MonthlyLimit, StringFormat='{0:C2}'}" TextColor="Black"/>
             </StackLayout>
         </StackLayout>
         <StackLayout Padding="20">
-            <Label Text="Last added entries"/>
-            <ListView ItemsSource="{Binding ExpenseList}" SelectionMode="None">
+            <Label Text="Last added entries" TextColor="Black"/>
+            <ListView ItemsSource="{Binding ExpenseList}" SelectionMode="None" BackgroundColor="#CFCFCF">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
@@ -59,11 +61,11 @@
                                           CommandParameter="{Binding .}"
                                           Text="Delete" IsDestructive="True"/>
                             </ViewCell.ContextActions>
-                            <StackLayout Orientation="Horizontal" VerticalOptions="Center">
-                                <Label Text="{Binding Date, StringFormat='{0:dd/MM/yyyy}'}"/>
-                                <Label Text="{Binding Category}"/>
-                                <Label Text="{Binding Price, StringFormat='{0:C2}'}"/>
-                                <Label Text="{Binding Notes}"/>
+                            <StackLayout Orientation="Horizontal" VerticalOptions="Center" Padding="5">
+                                <Label Text="{Binding Date, StringFormat='{0:dd/MM/yyyy}'}" TextColor="Black"/>
+                                <Label Text="{Binding Category}" TextColor="Black"/>
+                                <Label Text="{Binding Price, StringFormat='{0:C2}'}" TextColor="Black"/>
+                                <Label Text="{Binding Notes}" TextColor="Black"/>
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>

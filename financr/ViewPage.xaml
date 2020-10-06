@@ -5,23 +5,25 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="financr.ViewPage"
-             x:Name="PageForView">
+             x:Name="PageForView"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             ios:Page.UseSafeArea="True">
     <StackLayout Margin="10, 10, 10, 10">
         <StackLayout Orientation="Horizontal" VerticalOptions="Center">
-            <Label Text="From" VerticalTextAlignment="Center"/>
-            <DatePicker x:Name="dateStart" Format="dd/MM/yyyy" Date="{Binding DateStartFilter}"/>
+            <Label Text="From" VerticalTextAlignment="Center" TextColor="Black"/>
+            <DatePicker x:Name="dateStart" Format="dd/MM/yyyy" Date="{Binding DateStartFilter}" BackgroundColor="#b0c4de" TextColor="Black"/>
             <Label Text="To" VerticalTextAlignment="Center"/>
-            <DatePicker x:Name="dateEnd" Format="dd/MM/yyyy" Date="{Binding DateEndFilter}"/>
-            <Label Text="Include Date?" VerticalTextAlignment="Center"/>
+            <DatePicker x:Name="dateEnd" Format="dd/MM/yyyy" Date="{Binding DateEndFilter}" BackgroundColor="#b0c4de" TextColor="Black"/>
+            <Label Text="Include Date?" VerticalTextAlignment="Center" TextColor="Black"/>
             <CheckBox x:Name="checkBoxDate" IsChecked="{Binding CheckBoxFilter, Mode=TwoWay}"/>
         </StackLayout>
         <StackLayout Orientation="Horizontal">
-            <Picker x:Name="categoryPicker" ItemsSource="{Binding CategoryList}" ItemDisplayBinding="{Binding Category}" Title="Category" SelectedItem="{Binding CategoryFilter, Mode=TwoWay}"/>
-            <Entry x:Name="notesEntry" Placeholder="Notes" Text="{Binding NotesFilter, Mode=TwoWay}"/>
+            <Picker x:Name="categoryPicker" ItemsSource="{Binding CategoryList}" ItemDisplayBinding="{Binding Category}" Title="Category" SelectedItem="{Binding CategoryFilter, Mode=TwoWay}" BackgroundColor="#b0c4de" TextColor="Black"/>
+            <Entry x:Name="notesEntry" Placeholder="Notes" Text="{Binding NotesFilter, Mode=TwoWay}" BackgroundColor="#b0c4de" TextColor="Black"/>
             <Button x:Name="filterButton" Text="Filter" Command="{Binding OnFilterCommand}"/>
             <Button x:Name="resetFilterButton" Text="Reset" Command="{Binding OnFilterResetCommand}"/>
         </StackLayout>
-        <ListView x:Name="viewListView" ItemsSource="{Binding SortedExpenseList}" SelectionMode="None" IsPullToRefreshEnabled="true" Refreshing="ListView_Refreshing">
+        <ListView x:Name="viewListView" ItemsSource="{Binding SortedExpenseList}" SelectionMode="None" IsPullToRefreshEnabled="true" Refreshing="ListView_Refreshing"  BackgroundColor="#CFCFCF">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
@@ -33,19 +35,19 @@
                                               CommandParameter="{Binding .}"
                                               Text="Delete" IsDestructive="True"/>
                         </ViewCell.ContextActions>
-                        <StackLayout Orientation="Horizontal" VerticalOptions="Center">
-                            <Label Text="{Binding Date, StringFormat='{0:dd/MM/yyyy}'}"/>
-                            <Label Text="{Binding Category}"/>
-                            <Label Text="{Binding Price, StringFormat='{0:C2}'}"/>
-                            <Label Text="{Binding Notes}"/>
+                        <StackLayout Orientation="Horizontal" VerticalOptions="Center" Padding="5">
+                            <Label Text="{Binding Date, StringFormat='{0:dd/MM/yyyy}'}" TextColor="Black"/>
+                            <Label Text="{Binding Category}" TextColor="Black"/>
+                            <Label Text="{Binding Price, StringFormat='{0:C2}'}" TextColor="Black"/>
+                            <Label Text="{Binding Notes}" TextColor="Black"/>
                         </StackLayout>
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
         <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-            <Label Text="Total     " VerticalTextAlignment="Center"/>
-            <Label Text="{Binding Total, StringFormat='{0:C2}'}" VerticalTextAlignment="Center"/>
+            <Label Text="Total     " VerticalTextAlignment="Center" TextColor="Black"/>
+            <Label Text="{Binding Total, StringFormat='{0:C2}'}" VerticalTextAlignment="Center" TextColor="Black"/>
         </StackLayout>
     </StackLayout>
 </ContentPage>

@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "financr.Android", "financr.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "financr.iOS", "financr.iOS\financr.iOS.csproj", "{175A4243-ED93-4466-989C-A55C641AAD96}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "financr", "financr\financr.csproj", "{BD88F4C5-E037-4CEE-A40E-CE60994CEB0E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "financr", "financr\financr.csproj", "{BD88F4C5-E037-4CEE-A40E-CE60994CEB0E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

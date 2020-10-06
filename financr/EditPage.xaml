@@ -5,25 +5,27 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="financr.EditPage"
-             x:Name="PageForEdit">
+             x:Name="PageForEdit"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             ios:Page.UseSafeArea="True">
     <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
-        <Label Text="New Date"/>
-        <DatePicker x:Name="datePicker" Date="{Binding DateExpense}" Format="dd/MM/yyyy"/>
-        <Label Text="New Price"/>
-        <Entry x:Name="priceEntry" Text="{Binding PriceExpense, StringFormat='{0:C2}'}" Keyboard="Numeric"/>
-        <Label Text="New Category"/>
-        <ListView x:Name="categoryExpense" ItemsSource="{Binding CategoryList}" SelectedItem="{Binding CategoryExpense, Mode=TwoWay}">
+        <Label Text="New Date" TextColor="Black"/>
+        <DatePicker x:Name="datePicker" Date="{Binding DateExpense}" Format="dd/MM/yyyy" TextColor="Black" BackgroundColor="#b0c4de"/>
+        <Label Text="New Price" TextColor="Black"/>
+        <Entry x:Name="priceEntry" Text="{Binding PriceExpense, StringFormat='{0:C2}'}" Keyboard="Numeric" TextColor="Black" BackgroundColor="#b0c4de"/>
+        <Label Text="New Category" TextColor="Black"/>
+        <ListView x:Name="categoryExpense" ItemsSource="{Binding CategoryList}" SelectedItem="{Binding CategoryExpense, Mode=TwoWay}" BackgroundColor="#b0c4de">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <Label Text="{Binding Category}"/>
+                        <Label Text="{Binding Category}" TextColor="Black"/>
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <Label Text="New Notes"/>
-        <Entry x:Name="notesEntry" Text="{Binding NotesExpense}"/>
-        <Label x:Name="infoLabel" Text="{Binding InfoLabel}"/>
+        <Label Text="New Notes" TextColor="Black"/>
+        <Entry x:Name="notesEntry" Text="{Binding NotesExpense}" TextColor="Black" BackgroundColor="#b0c4de"/>
+        <Label x:Name="infoLabel" Text="{Binding InfoLabel}" TextColor="Black"/>
         <Button x:Name="save" Text="save" Command="{Binding OnEditSaveCommand}"/>
         <Button x:Name="back" Text="Back" Command="{Binding OnEditBackCommand}"/>
     </StackLayout>
