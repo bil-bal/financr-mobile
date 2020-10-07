@@ -1,5 +1,5 @@
 # financr-mobile
-Mobile app for [financr](https://financronline.de/). Written in C# with the Xamarin.Forms Framework. Connects to the Backend via an API written with Django REST framework.
+Mobile app for [financr](https://financronline.de/). Written in C# with the Xamarin.Forms Framework. Connects to the Backend via an API written with the Django REST framework.
 
 ## Add categories
 
