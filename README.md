@@ -35,3 +35,4 @@ If you make a mistake you can edit your expense entries or delete them
 
 - Clean up the design and make it a little bit neater.
 - Add new features.
+- Fix occuring bugs.
