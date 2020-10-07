@@ -11,9 +11,9 @@
              ios:Page.UseSafeArea="True">
     <StackLayout VerticalOptions="Center" Padding="20" Spacing="20">
         <Label Text="create an account" TextColor="Black" FontSize="40" Padding="0, 0, 0, 50"/>
-        <Entry x:Name="username" Text="{Binding Username}" Placeholder="username" TextColor="Black" PlaceholderColor="Black" Completed="username_Completed"/>
-        <Entry x:Name="password1" Text="{Binding Password}" Placeholder="password" TextColor="Black" PlaceholderColor="Black" Completed="password1_Completed" IsPassword="True"/>
-        <Entry x:Name="password2" Text="{Binding PasswordConfirm}" Placeholder="re-enter password" TextColor="Black" PlaceholderColor="Black" ReturnCommand="{Binding OnRegisterCommand}" IsPassword="True"/>
+        <Entry x:Name="username" Text="{Binding Username}" Placeholder="username" TextColor="Black" PlaceholderColor="Black" Completed="username_Completed" BackgroundColor="#F6F6F6"/>
+        <Entry x:Name="password1" Text="{Binding Password}" Placeholder="password" TextColor="Black" PlaceholderColor="Black" Completed="password1_Completed" IsPassword="True" BackgroundColor="#F6F6F6"/>
+        <Entry x:Name="password2" Text="{Binding PasswordConfirm}" Placeholder="re-enter password" TextColor="Black" PlaceholderColor="Black" ReturnCommand="{Binding OnRegisterCommand}" IsPassword="True" BackgroundColor="#F6F6F6"/>
         <Label x:Name="infoLabel" Text="{Binding InfoLabel}" TextColor="Black"/>
         <Button x:Name="register" Text="register" BackgroundColor="Transparent" Command="{Binding OnRegisterCommand}"/>
         <Button x:Name="back" Text="Back" BackgroundColor="Transparent" Command="{Binding OnBackCommand}"/>
