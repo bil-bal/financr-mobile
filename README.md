@@ -15,14 +15,20 @@ Create an expense with a date, the price, the category and a note
 
 ## Add a monthly limit, get an overview with graphs
 
-To show you how close you are to your personal monthly limit
+To show you how close you are to your personal monthly limit and to give you a better overview 
 
 ![Imgur](https://i.imgur.com/fv6Scew.gif)
 
 ## Filter the list
+
+You can filter the list for a date range, category or the notes or everything at once
+
 ![Imgur](https://i.imgur.com/TPeZNWz.gif)
 
 ## Edit expenses
+
+If you make a mistake you can edit your expense entries or delete them
+
 ![Imgur](https://i.imgur.com/yrfG7GC.gif)
 
 
