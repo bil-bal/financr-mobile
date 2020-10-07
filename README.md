@@ -31,5 +31,7 @@ If you make a mistake you can edit your expense entries or delete them
 
 ![Imgur](https://i.imgur.com/yrfG7GC.gif)
 
+# To do
 
-
+- Clean up the design and make it a little bit neater.
+- Add new features.
