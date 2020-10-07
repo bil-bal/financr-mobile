@@ -24,7 +24,7 @@
                 <Entry x:Name="categoryEntry" Placeholder="Enter Category" Text="{Binding AddCategoryString}" BackgroundColor="#b0c4de" TextColor="Black"/>
                 <Button x:Name="addCategory" Text="add category" Command="{Binding OnAddCategoryCommand}"/>
             </StackLayout>
-            <ListView x:Name="categoryExpense" ItemsSource="{Binding CategoryList}" SelectedItem="{Binding CategoryExpense}" BackgroundColor="#b0c4de">
+            <ListView x:Name="categoryExpense" ItemsSource="{Binding CategoryList}" SelectedItem="{Binding CategoryExpense}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
@@ -32,7 +32,7 @@
                                 <MenuItem x:Name="deleteCategory" Command="{Binding Path=BindingContext.OnDeleteCategoryCommand, Source={x:Reference Name=PageForAdd}}"
                                           CommandParameter="{Binding .}" Text="Delete" IsDestructive="True"/>
                             </ViewCell.ContextActions>
-                            <Label Text="{Binding Category}" TextColor="Black"/>
+                            <Label Text="{Binding Category}"/>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>

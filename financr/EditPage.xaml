@@ -14,11 +14,11 @@
         <Label Text="New Price" TextColor="Black"/>
         <Entry x:Name="priceEntry" Text="{Binding PriceExpense, StringFormat='{0:C2}'}" Keyboard="Numeric" TextColor="Black" BackgroundColor="#b0c4de"/>
         <Label Text="New Category" TextColor="Black"/>
-        <ListView x:Name="categoryExpense" ItemsSource="{Binding CategoryList}" SelectedItem="{Binding CategoryExpense, Mode=TwoWay}" BackgroundColor="#b0c4de">
+        <ListView x:Name="categoryExpense" ItemsSource="{Binding CategoryList}" SelectedItem="{Binding CategoryExpense, Mode=TwoWay}">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <Label Text="{Binding Category}" TextColor="Black"/>
+                        <Label Text="{Binding Category}"/>
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>

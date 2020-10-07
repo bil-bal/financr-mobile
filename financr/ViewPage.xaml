@@ -12,7 +12,7 @@
         <StackLayout Orientation="Horizontal" VerticalOptions="Center">
             <Label Text="From" VerticalTextAlignment="Center" TextColor="Black"/>
             <DatePicker x:Name="dateStart" Format="dd/MM/yyyy" Date="{Binding DateStartFilter}" BackgroundColor="#b0c4de" TextColor="Black"/>
-            <Label Text="To" VerticalTextAlignment="Center"/>
+            <Label Text="To" VerticalTextAlignment="Center" TextColor="Black"/>
             <DatePicker x:Name="dateEnd" Format="dd/MM/yyyy" Date="{Binding DateEndFilter}" BackgroundColor="#b0c4de" TextColor="Black"/>
             <Label Text="Include Date?" VerticalTextAlignment="Center" TextColor="Black"/>
             <CheckBox x:Name="checkBoxDate" IsChecked="{Binding CheckBoxFilter, Mode=TwoWay}"/>
